@@ -1,6 +1,7 @@
 const { endpoint } = require("@ev-fns/endpoint");
 const { v4: uuidv4 } = require("uuid");
 const { HttpError } = require("@ev-fns/errors");
+const { response } = require("../routes/contas");
 
 const clientes = [];
 
@@ -33,6 +34,10 @@ exports.contasGetOneExtratosGetMany = endpoint((req, res) => {
   const { id_conta } = req.params;
 
   const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
+
+  if (!cliente) {
+    throw new HttpError(404, "customer not found");
+  }
 
   res.status(200).json(cliente.extratos);
 });
