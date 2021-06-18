@@ -1,7 +1,7 @@
 const { endpoint } = require("@ev-fns/endpoint");
 const { v4: uuidv4 } = require("uuid");
 const { HttpError } = require("@ev-fns/errors");
-const { response } = require("../routes/contas");
+const { verificaContaId } = require("../functions/verificaConta");
 
 const clientes = [];
 
@@ -36,8 +36,26 @@ exports.contasGetOneExtratosGetMany = endpoint((req, res) => {
   const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
 
   if (!cliente) {
-    throw new HttpError(404, "customer not found");
+    throw new HttpError(404, "cliente not found");
   }
 
   res.status(200).json(cliente.extratos);
+});
+
+exports.depositoPostOne = endpoint((req, res) => {
+  const { descricao, valor } = req.body;
+  const { id_conta } = req.headers;
+
+  const { cliente } = verificaContaId(clientes, id_conta);
+
+  const extratoOperacao = {
+    descricao,
+    valor,
+    tipo: "crédito",
+    created_at: new Date(),
+  };
+
+  cliente.extratos.push(extratoOperacao);
+
+  res.status(200).json(extratoOperacao);
 });

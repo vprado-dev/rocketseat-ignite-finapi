@@ -3,11 +3,13 @@ const Router = require("express");
 const {
   contasPostOneBody,
   contasGetOneExtratosGetManyParams,
+  depositoPostOneBody,
 } = require("../validations/contas");
 const {
   contasPostOne,
   contasGetMany,
   contasGetOneExtratosGetMany,
+  depositoPostOne,
 } = require("../endpoints/contas");
 
 const router = Router();
@@ -21,5 +23,7 @@ router.get(
   params(contasGetOneExtratosGetManyParams),
   contasGetOneExtratosGetMany,
 );
+
+router.post("/deposito", depositoPostOne);
 
 module.exports = router;

@@ -14,3 +14,10 @@ exports.contasGetOneExtratosGetManyParams = Joi.object()
     id_conta: Joi.string().required(),
   })
   .required();
+
+exports.depositoPostOneBody = Joi.object()
+  .keys({
+    descricao: Joi.string().required(),
+    valor: Joi.number().required(),
+  })
+  .required();
