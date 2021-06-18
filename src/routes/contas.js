@@ -1,7 +1,12 @@
-const { body } = require("@ev-fns/validation");
+const { body, params } = require("@ev-fns/validation");
 const Router = require("express");
 const { contasPostOneBody } = require("../validations/contas");
-const { contasPostOne } = require("../endpoints/contas");
+const { contasGetMany, contasPostOne } = require("../endpoints/contas");
+
 const router = Router();
 
-module.exports = router.post("/conta", body(contasPostOneBody), contasPostOne);
+router.get("/contas", contasGetMany);
+
+router.post("/conta", body(contasPostOneBody), contasPostOne);
+
+module.exports = router;

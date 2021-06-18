@@ -18,9 +18,13 @@ exports.contasPostOne = endpoint((req, res) => {
   clientes.push({
     cpf,
     nome,
-    id: uuidv4(),
-    statement: [],
+    id,
+    extratos: [],
   });
 
   res.status(201).end();
+});
+
+exports.contasGetMany = endpoint((req, res) => {
+  res.status(200).json(clientes);
 });
