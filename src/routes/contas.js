@@ -24,6 +24,6 @@ router.get(
   contasGetOneExtratosGetMany,
 );
 
-router.post("/deposito", depositoPostOne);
+router.post("/deposito", body(depositoPostOneBody), depositoPostOne);
 
 module.exports = router;
