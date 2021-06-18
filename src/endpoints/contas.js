@@ -25,6 +25,14 @@ exports.contasPostOne = endpoint((req, res) => {
   res.status(201).end();
 });
 
-exports.contasGetMany = endpoint((req, res) => {
+exports.contasGetMany = endpoint((_, res) => {
   res.status(200).json(clientes);
+});
+
+exports.contasGetOneExtratosGetMany = endpoint((req, res) => {
+  const { id_conta } = req.params;
+
+  const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
+
+  res.status(200).json(cliente.extratos);
 });

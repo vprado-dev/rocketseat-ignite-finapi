@@ -8,3 +8,9 @@ exports.contasPostOneBody = Joi.object()
     nome: Joi.string().required(),
   })
   .required();
+
+exports.contasGetOneExtratosGetManyParams = Joi.object()
+  .keys({
+    id_conta: Joi.string().required(),
+  })
+  .required();
