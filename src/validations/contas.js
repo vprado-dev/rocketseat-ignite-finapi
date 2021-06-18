@@ -21,3 +21,11 @@ exports.depositoPostOneBody = Joi.object()
     valor: Joi.number().required(),
   })
   .required();
+
+exports.contasGetOneParam = Joi.object()
+  .keys({
+    cpf: Joi.string()
+      .regex(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
+      .required(),
+  })
+  .required();

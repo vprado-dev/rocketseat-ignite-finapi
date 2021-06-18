@@ -4,12 +4,14 @@ const {
   contasPostOneBody,
   contasGetOneExtratosGetManyParams,
   depositoPostOneBody,
+  contasGetOneParam,
 } = require("../validations/contas");
 const {
   contasPostOne,
   contasGetMany,
   contasGetOneExtratosGetMany,
   depositoPostOne,
+  contasGetOne,
 } = require("../endpoints/contas");
 
 const router = Router();
@@ -17,6 +19,8 @@ const router = Router();
 router.get("/contas", contasGetMany);
 
 router.post("/conta", body(contasPostOneBody), contasPostOne);
+
+router.get("/conta/:cpf", params(contasGetOneParam), contasGetOne);
 
 router.get(
   "/extratos/:id_conta",

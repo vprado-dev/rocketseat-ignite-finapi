@@ -1,7 +1,8 @@
 const { endpoint } = require("@ev-fns/endpoint");
 const { v4: uuidv4 } = require("uuid");
 const { HttpError } = require("@ev-fns/errors");
-const { verificaContaId } = require("../functions/verificaConta");
+const { verificaContaId } = require("../functions/verificaContaId");
+const { verificaContaCpf } = require("../functions/verificaContaCpf");
 
 const clientes = [];
 
@@ -28,6 +29,14 @@ exports.contasPostOne = endpoint((req, res) => {
 
 exports.contasGetMany = endpoint((_, res) => {
   res.status(200).json(clientes);
+});
+
+exports.contasGetOne = endpoint((req, res) => {
+  const { cpf } = req.params;
+
+  const cliente = verificaContaCpf(clientes, cpf);
+
+  res.status(200).json(cliente);
 });
 
 exports.contasGetOneExtratosGetMany = endpoint((req, res) => {

@@ -7,5 +7,5 @@ exports.verificaContaId = (clientes, id_conta) => {
     throw new HttpError(404, "cliente not found");
   }
 
-  return { cliente };
+  return cliente;
 };
