@@ -5,12 +5,16 @@
   "author": "Vinicius Prado <vinicavagna@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "@ev-fns/endpoint": "^0.1.2",
+    "@ev-fns/validation": "^0.1.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "dev": "yarn nodemon src/app.js"
+    "dev": "yarn nodemon src/index.js"
   }
 }
