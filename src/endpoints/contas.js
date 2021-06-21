@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const { HttpError } = require("@ev-fns/errors");
 const { verificaContaId } = require("../functions/verificaContaId");
 const { verificaContaCpf } = require("../functions/verificaContaCpf");
+const { getSaldoCliente } = require("../functions/getSaldoCliente");
 
 const clientes = [];
 
@@ -92,7 +93,15 @@ exports.saquePostOne = endpoint((req, res) => {
   const { descricao, valor } = req.body;
   const { id_conta } = req.headers;
 
-  const { cliente } = verificaContaId(clientes, id_conta);
+  const cliente = verificaContaId(clientes, id_conta);
+
+  const saldo = getSaldoCliente(cliente.extratos);
+
+  console.log({ saldo });
+
+  if (valor > saldo) {
+    throw new HttpError(400, "Saldo insuficente");
+  }
 
   const extratoOperacao = {
     descricao,
