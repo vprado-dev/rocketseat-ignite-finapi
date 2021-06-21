@@ -18,6 +18,7 @@ const {
   depositoPostOne,
   saquePostOne,
   contasGetOneExtratosGetOne,
+  contasDeleteOne,
 } = require("../endpoints/contas");
 
 const router = Router();
@@ -49,6 +50,12 @@ router.patch(
   params(contasGetOneExtratosGetManyParams),
   body(contasPatchOneBody),
   contasPatchOne,
+);
+
+router.delete(
+  "/conta/:id_conta",
+  params(contasGetOneExtratosGetManyParams),
+  contasDeleteOne,
 );
 
 module.exports = router;

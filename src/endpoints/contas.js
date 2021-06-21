@@ -117,3 +117,13 @@ exports.contasPatchOne = endpoint((req, res) => {
 
   res.status(200).json(cliente);
 });
+
+exports.contasDeleteOne = endpoint((req, res) => {
+  const { id_conta } = req.params;
+
+  const cliente = verificaContaId(clientes, id_conta);
+
+  clientes.splice(cliente, 1);
+
+  res.status(200).json(clientes);
+});
