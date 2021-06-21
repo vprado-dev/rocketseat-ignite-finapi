@@ -1,0 +1,298 @@
+_type: export
+__export_format: 4
+__export_date: 2021-06-21T16:26:21.544Z
+__export_source: insomnia.desktop.app:v2021.3.0
+resources:
+  - _id: req_8aae2631148a421680a5eb2647b5addc
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624292757641
+    created: 1624292224036
+    url: "{{ _.base_url }}/conta/97d9601c-1dc5-41bd-8466-7a5a65d5d6ab"
+    name: contasDeleteOne
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1624292224036
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_80be15c8b61d4518b0459375203a0ce3
+    parentId: null
+    modified: 1624026236809
+    created: 1624026236809
+    name: FinAPI
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_d9469ae1043f4a838e395206f106086a
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624291524691
+    created: 1624288424989
+    url: "{{ _.base_url }}/conta/d92a7df0-2d08-4a58-a270-2a3baafb981b"
+    name: contasPatchOne
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome":"fernando"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e3449eee711d472fb548ca06bfb53e9a
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_36e0687b22684fa28454c9f3b2cc10fd
+    authentication: {}
+    metaSortKey: -1624288424989
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_087c4fe1008c4fb8a58052615980ada1
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624283624269
+    created: 1624282723351
+    url: "{{ _.base_url }}/extrato/data"
+    name: extratoGetOne - Date
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: data
+        value: 2021-06-21
+        description: ""
+        id: pair_7a699de936fc4142a794ed271d76dd4a
+      - name: id_conta
+        value: ea8c26ab-49d8-4a05-b285-d86cf93f732b
+        description: ""
+        id: pair_67a4b2f8f8cb44b19153703ab1bb0b89
+    headers: []
+    authentication: {}
+    metaSortKey: -1624282723351
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ef590c7b538c4b8fb753be639eba33cf
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624286220561
+    created: 1624281726129
+    url: "{{ _.base_url }}/saque"
+    name: makeSaque
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	  "descricao": "prado uber",
+            "valor": 1500.00
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_50103f0a6dcb4335b5faa436fe33d905
+      - name: id_conta
+        value: 29b5072f-3510-4ffd-91c3-6e99574da2c
+        description: ""
+        id: pair_3b9b12ddc58e4991bc9dc76908e155b9
+    authentication: {}
+    metaSortKey: -1624281726129
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_afec143f73384294b438e7929801868d
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624286171838
+    created: 1624041069567
+    url: "{{ _.base_url }}/deposito"
+    name: makeDeposito
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	  "descricao": "prado uber",
+            "valor": 1500.00
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3f26fed29f4443c1be15728bbef47ad7
+      - name: id_conta
+        value: 29b5072f-3510-4ffd-91c3-6e99574da2c4
+        description: ""
+        id: pair_849dbb068e92486e9d32e6b7ca35d7a6
+    authentication: {}
+    metaSortKey: -1624041069568
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fcc085b609cd4cdbb1150a4c3b8500d0
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624292291544
+    created: 1624026791613
+    url: "{{ _.base_url }}/conta"
+    name: criaConta
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"cpf": "999.999.999-99",
+        	"nome": "Vinicius Prado"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8e891a9471284b4f8cb78c19862b2d83
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_0f9b687985f848d288e6637d9d899b1d
+    authentication: {}
+    metaSortKey: -1624037552107
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_50227745efa5490ea83fb8956d843f8c
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624043652181
+    created: 1624043210760
+    url: "{{ _.base_url }}/conta/999.999.999-99"
+    name: contasGetOne
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1624037552082
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_412002fbe9d343ccadd46398ab70eebb
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624282977835
+    created: 1624037552057
+    url: "{{ _.base_url }}/contas"
+    name: contasGetMany
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_f15edd3fecf0452789068a6e3e2ff4c7
+    headers: []
+    authentication: {}
+    metaSortKey: -1624037552057
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bbc2a76778cc4c14871235a1d4ff85ad
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624283592765
+    created: 1624035163824
+    url: "{{ _.base_url }}/extratos/ea8c26ab-49d8-4a05-b285-d86cf93f732b"
+    name: getExtrato
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_00ec1fa2692548eb93d7e59325030d12
+    authentication: {}
+    metaSortKey: -1624026791563
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_c1413b63d10dd7d4ad7a311087dbe7e329fa441e
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624026902960
+    created: 1624026236863
+    name: Base Environment
+    data:
+      base_url: http://localhost:8000
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: null
+    isPrivate: false
+    metaSortKey: 1624026236863
+    _type: environment
+  - _id: jar_c1413b63d10dd7d4ad7a311087dbe7e329fa441e
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624026236864
+    created: 1624026236864
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_abf8c576ab244a12aee9fb6025e0828a
+    parentId: wrk_80be15c8b61d4518b0459375203a0ce3
+    modified: 1624026236814
+    created: 1624026236814
+    fileName: FinAPI
+    contents: ""
+    contentType: yaml
+    _type: api_spec
