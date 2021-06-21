@@ -43,11 +43,7 @@ exports.contasGetOne = endpoint((req, res) => {
 exports.contasGetOneExtratosGetMany = endpoint((req, res) => {
   const { id_conta } = req.params;
 
-  const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
-
-  if (!cliente) {
-    throw new HttpError(404, "cliente not found");
-  }
+  const cliente = verificaContaId(clientes, id_conta);
 
   res.status(200).json(cliente.extratos);
 });
@@ -57,11 +53,7 @@ exports.contasGetOneExtratosGetOne = endpoint((req, res) => {
 
   const dateFormat = new Date(data + " 00:00");
 
-  const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
-
-  if (!cliente) {
-    throw new HttpError(404, "cliente not found");
-  }
+  const cliente = verificaContaId(clientes, id_conta);
 
   const extrato = cliente.extratos.filter(
     (extrato) =>
@@ -113,4 +105,15 @@ exports.saquePostOne = endpoint((req, res) => {
   cliente.extratos.push(extratoOperacao);
 
   res.status(200).json(extratoOperacao);
+});
+
+exports.contasPatchOne = endpoint((req, res) => {
+  const { id_conta } = req.params;
+  const { nome } = req.body;
+
+  const cliente = verificaContaId(clientes, id_conta);
+
+  cliente.nome = nome;
+
+  res.status(200).json(cliente);
 });

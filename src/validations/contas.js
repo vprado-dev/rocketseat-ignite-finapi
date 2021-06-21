@@ -21,12 +21,6 @@ exports.contasGetOneExtratosGetOneParams = Joi.object()
     data: Joi.string().required(),
   })
   .required();
-exports.depositoPostOneBody = Joi.object()
-  .keys({
-    descricao: Joi.string().required(),
-    valor: Joi.number().required(),
-  })
-  .required();
 
 exports.contasGetOneParam = Joi.object()
   .keys({
@@ -36,7 +30,20 @@ exports.contasGetOneParam = Joi.object()
   })
   .required();
 
-exports.saquePostOneBody = Joi.object().keys({
-  descricao: Joi.string().required(),
-  valor: Joi.number().required(),
-});
+exports.contasPatchOneBody = Joi.object()
+  .keys({ nome: Joi.string() })
+  .required();
+
+exports.depositoPostOneBody = Joi.object()
+  .keys({
+    descricao: Joi.string().required(),
+    valor: Joi.number().required(),
+  })
+  .required();
+
+exports.saquePostOneBody = Joi.object()
+  .keys({
+    descricao: Joi.string().required(),
+    valor: Joi.number().required(),
+  })
+  .required();

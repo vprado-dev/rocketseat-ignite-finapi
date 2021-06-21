@@ -5,6 +5,7 @@ const {
   contasGetOneExtratosGetManyParams,
   depositoPostOneBody,
   contasGetOneParam,
+  contasPatchOneBody,
   saquePostOneBody,
   contasGetOneExtratosGetOneParams,
 } = require("../validations/contas");
@@ -12,8 +13,9 @@ const {
   contasPostOne,
   contasGetMany,
   contasGetOneExtratosGetMany,
-  depositoPostOne,
   contasGetOne,
+  contasPatchOne,
+  depositoPostOne,
   saquePostOne,
   contasGetOneExtratosGetOne,
 } = require("../endpoints/contas");
@@ -40,6 +42,13 @@ router.get(
   "/extrato/data",
   query(contasGetOneExtratosGetOneParams),
   contasGetOneExtratosGetOne,
+);
+
+router.patch(
+  "/conta/:id_conta",
+  params(contasGetOneExtratosGetManyParams),
+  body(contasPatchOneBody),
+  contasPatchOne,
 );
 
 module.exports = router;
