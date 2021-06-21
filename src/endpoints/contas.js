@@ -68,3 +68,21 @@ exports.depositoPostOne = endpoint((req, res) => {
 
   res.status(200).json(extratoOperacao);
 });
+
+exports.saquePostOne = endpoint((req, res) => {
+  const { descricao, valor } = req.body;
+  const { id_conta } = req.headers;
+
+  const { cliente } = verificaContaId(clientes, id_conta);
+
+  const extratoOperacao = {
+    descricao,
+    valor,
+    tipo: "débito",
+    created_at: new Date(),
+  };
+
+  cliente.extratos.push(extratoOperacao);
+
+  res.status(200).json(extratoOperacao);
+});

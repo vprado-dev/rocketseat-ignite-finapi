@@ -29,3 +29,8 @@ exports.contasGetOneParam = Joi.object()
       .required(),
   })
   .required();
+
+exports.saquePostOneBody = Joi.object().keys({
+  descricao: Joi.string().required(),
+  valor: Joi.number().required(),
+});
