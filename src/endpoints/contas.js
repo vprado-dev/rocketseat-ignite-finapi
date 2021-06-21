@@ -51,11 +51,30 @@ exports.contasGetOneExtratosGetMany = endpoint((req, res) => {
   res.status(200).json(cliente.extratos);
 });
 
+exports.contasGetOneExtratosGetOne = endpoint((req, res) => {
+  const { id_conta, data } = req.query;
+
+  const dateFormat = new Date(data + " 00:00");
+
+  const cliente = clientes.find((clienteObj) => clienteObj.id === id_conta);
+
+  if (!cliente) {
+    throw new HttpError(404, "cliente not found");
+  }
+
+  const extrato = cliente.extratos.filter(
+    (extrato) =>
+      extrato.created_at.toDateString() === new Date(dateFormat).toDateString(),
+  );
+
+  res.status(200).json(extrato);
+});
+
 exports.depositoPostOne = endpoint((req, res) => {
   const { descricao, valor } = req.body;
   const { id_conta } = req.headers;
 
-  const { cliente } = verificaContaId(clientes, id_conta);
+  const cliente = verificaContaId(clientes, id_conta);
 
   const extratoOperacao = {
     descricao,

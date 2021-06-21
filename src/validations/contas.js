@@ -15,6 +15,12 @@ exports.contasGetOneExtratosGetManyParams = Joi.object()
   })
   .required();
 
+exports.contasGetOneExtratosGetOneParams = Joi.object()
+  .keys({
+    id_conta: Joi.string().required(),
+    data: Joi.string().required(),
+  })
+  .required();
 exports.depositoPostOneBody = Joi.object()
   .keys({
     descricao: Joi.string().required(),

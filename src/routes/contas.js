@@ -1,4 +1,4 @@
-const { body, params } = require("@ev-fns/validation");
+const { body, params, query } = require("@ev-fns/validation");
 const Router = require("express");
 const {
   contasPostOneBody,
@@ -6,6 +6,7 @@ const {
   depositoPostOneBody,
   contasGetOneParam,
   saquePostOneBody,
+  contasGetOneExtratosGetOneParams,
 } = require("../validations/contas");
 const {
   contasPostOne,
@@ -14,6 +15,7 @@ const {
   depositoPostOne,
   contasGetOne,
   saquePostOne,
+  contasGetOneExtratosGetOne,
 } = require("../endpoints/contas");
 
 const router = Router();
@@ -33,5 +35,11 @@ router.get(
 router.post("/deposito", body(depositoPostOneBody), depositoPostOne);
 
 router.post("/saque", body(saquePostOneBody), saquePostOne);
+
+router.get(
+  "/extrato/data",
+  query(contasGetOneExtratosGetOneParams),
+  contasGetOneExtratosGetOne,
+);
 
 module.exports = router;
